@@ -1,0 +1,26 @@
+{
+  "name": "chisaki_discord",
+  "version": "2.0.0",
+  "description": "powerfull discord bot",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "thelazypie",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thelazypie/chisaki_discord.git"
+  },
+  "keywords": [
+    "discord",
+    "discordjs",
+    "discord.js",
+    "bot",
+    "chisaki"
+  ],
+  "bugs": {
+    "url": "https://github.com/thelazypie/chisaki_discord/issues"
+  },
+  "homepage": "https://github.com/thelazypie/chisaki_discord#readme"
+}
