@@ -4,23 +4,27 @@
   "description": "powerfull discord bot",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "dev": "npm run build --watch && npm run start",
+    "start": "node build/main.js"
   },
-  "author": "thelazypie",
-  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thelazypie/chisaki_discord.git"
   },
-  "keywords": [
-    "discord",
-    "discordjs",
-    "discord.js",
-    "bot",
-    "chisaki"
-  ],
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/thelazypie/chisaki_discord/issues"
   },
-  "homepage": "https://github.com/thelazypie/chisaki_discord#readme"
+  "homepage": "https://github.com/thelazypie/chisaki_discord#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^12.7.1",
+    "typescript": "^3.5.3"
+  }
 }
