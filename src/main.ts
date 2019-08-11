@@ -5,7 +5,7 @@ import { ExtendedClient } from "./ExtendedClient";
 
 (async () => {
     const chisaki = new ExtendedClient();
+    //todo: await chisaki.enableLogging(loggingType);
     await chisaki.loadCommands('build/commands');
-    console.log(chisaki.commands);
     await chisaki.login(process.env.BOT_TOKEN);
 })()
