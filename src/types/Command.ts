@@ -1,9 +1,13 @@
 import { Message } from "discord.js";
-
+import { ExtendedClient } from "ExtendedClient";
+/**
+ * abstraction for command
+ */
 declare type Command = {
     name: string,
-    type: "FUN" | "MODERATION" | "SYSTEM"
-    summon: (message: Message, args: string[]) => any;
+    help: string,
+    type: "FUN" | "MODERATION" | "SYSTEM" | "INFO",
+    summon: (exClient: ExtendedClient, message: Message, args: string[]) => any;
 }
 
 export default Command;
