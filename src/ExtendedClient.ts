@@ -1,5 +1,5 @@
 import { Client, Collection, ClientOptions, Message } from 'discord.js';
-import { readdirSync, lstatSync } from 'fs';;
+import { readdirSync, lstatSync } from 'fs';
 import { resolve } from 'path';
 
 import Command from '@type/Command'
@@ -9,13 +9,18 @@ export class ExtendedClient extends Client {
     constructor(options?: ClientOptions) {
         super(options);
         this.commands = new Collection();
-        this.onCommandSend();
+        this.onCommandAction();
         this.handleCommand();
+        this.handleHelp();
     }
 
     public commands: Collection<string, Command>;
 
-    private onCommandSend(): void {
+    public define({ prop, value, opts }: { prop: string; value: any; opts?: PropertyDescriptor; }): void {
+        Object.defineProperty(this, prop, { value, ...opts });
+    }
+
+    private onCommandAction(): void {
         this.on('message', (message: Message) => {
             if (!message.content.startsWith("-")) return;
 
@@ -23,17 +28,29 @@ export class ExtendedClient extends Client {
             const args: string[] = prefixlessMessage.splice(1);
             const command: string = prefixlessMessage[0];
 
-            if (this.commands.has(command)) this.emit('commandSend', command, message, args);
+            if (args.some((arg) => arg === '-h')) return this.emit('commandHelp', command, message);
+            if (this.commands.has(command)) this.emit('commandSend', this, command, message, args);
         })
+    }
+
+    private handleHelp(): void {
+        this.on('commandHelp', (command: string, message: Message) => {
+            const curCommand = this.commands.get(command);
+            if (curCommand !== undefined) message.reply(`Usage <${curCommand.help}>`);
+        });
     }
 
     private handleCommand(): void {
-        this.on('commandSend', (command: string, message: Message, args: string[]) => {
+        this.on('commandSend', (exClient: ExtendedClient, command: string, message: Message, args: string[]) => {
             const curCommand = this.commands.get(command);
-            if (curCommand !== undefined) curCommand.summon(message, args);
+            if (curCommand !== undefined) curCommand.summon(exClient, message, args);
         })
     }
-
+    /**
+     * load files from dirs, finded in command folder
+     * @param folder part of path
+     * @param directory part of path
+     */
     private async loadFiles(folder: string, directory: string): Promise<void> {
         const filenames = readdirSync(resolve(process.cwd(), folder, directory));
         filenames.forEach(async (file: string) => {
@@ -43,7 +60,12 @@ export class ExtendedClient extends Client {
         });
         return Promise.resolve();
     }
-
+    /**
+     * load array of dir, contains in command folder
+     * @remarks calling for all dirs in commands folder
+     * @param folder path to dir in folder
+     * @returns array of dirs, finded at command folder
+     */
     private async loadDirs(folder: string): Promise<string[]> {
         const output = readdirSync(resolve(process.cwd(), folder));
 
@@ -54,7 +76,10 @@ export class ExtendedClient extends Client {
         });
         return dirs;
     }
-
+    /**
+     * load commands from folder
+     * @param commandsFolder path to commands folder, folder must be in src directory
+     */
     public async loadCommands(commandsFolder: string): Promise<void> {
         const directories: string[] = await this.loadDirs(commandsFolder);
         for (const directory of directories) {
