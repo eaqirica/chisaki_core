@@ -4,11 +4,11 @@
 
 * **with node**
     * ```npm run build``` only compile.
-    * ```npm run dev``` only start.
+    * ```npm run start``` only start.
     * ```npm run dev``` compile and run.
 * **with yarn**
     * ```yarn build``` only compile.
-    * ```yarn dev``` only start.
+    * ```yarn start``` only start.
     * ```yarn dev``` compile and run.
 ---
 
