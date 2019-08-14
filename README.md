@@ -1,12 +1,12 @@
 # **Chisaki**
 
-![](https://cdn.discordapp.com/avatars/493371941076467722/defa051c76993c5d08d0c9699d282f50.png?size=128)
+![chisaki avatar](https://cdn.discordapp.com/avatars/493371941076467722/defa051c76993c5d08d0c9699d282f50.png?size=128)
 
 *Chisaki* - is a beatifull powerfull discord bot which support ~~many~~ features like moderation, anime search or music and ~~many other~~.
 
-* # **How to use her**
+# **How to use her**
 
-* ## How to compile and run.
+## How to compile and run.
 
 * **with node**
     * ```npm run build``` - only compile.
