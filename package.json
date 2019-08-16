@@ -19,8 +19,11 @@
   },
   "homepage": "https://github.com/thelazypie/chisaki_discord#readme",
   "dependencies": {
+    "@types/validator": "^10.11.2",
+    "axios": "^0.19.0",
     "discord.js": "^11.5.1",
-    "dotenv": "^8.0.0"
+    "dotenv": "^8.0.0",
+    "validator": "^11.1.0"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.1",
