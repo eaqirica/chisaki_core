@@ -8,7 +8,7 @@ import animpwResponse from "@type/animpwResponce";
 const animPW: Command = {
     name: "animpw",
     help: "title",
-    type: "FUN",
+    type: "SEARCH",
     summon: async (exClient: ExtendedClient, message: Message, args: string[]) => {
 
         const query = args.join('');
