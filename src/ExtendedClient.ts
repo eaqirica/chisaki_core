@@ -16,6 +16,7 @@ export class ExtendedClient extends Client {
 
     public commands: Collection<string, Command>;
 
+    //why?
     public define({ prop, value, opts }: { prop: string; value: any; opts?: PropertyDescriptor; }): void {
         Object.defineProperty(this, prop, { value, ...opts });
     }
