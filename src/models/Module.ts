@@ -1,6 +1,6 @@
-import ModuleData from "./ModuleData";
+import { ModuleData } from "./ModuleData";
 
-export default interface Module {
+export interface Module {
     init: () => void;
     run: (data: ModuleData) => void;
 }
