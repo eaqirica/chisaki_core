@@ -1,6 +1,5 @@
-import ExtendedCLient from "./ExtendedClient";
-import { Message } from "discord.js";
+import { ExtendedCLient } from "./ExtendedClient";
 
-export default interface ModuleData {
+export interface ModuleData {
     exClient: ExtendedCLient;
 }
