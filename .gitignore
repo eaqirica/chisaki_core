@@ -1,5 +1,6 @@
 node_modules
 build
+lib
 .env
 *.log
 *.lock
