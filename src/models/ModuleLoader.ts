@@ -1,6 +1,6 @@
-import Module from './Module'
+import { Module } from './Module'
 
-export default class ModuleLoader {
+export class ModuleLoader {
 
     public modules: Array<Module> = new Array();
 
@@ -11,9 +11,16 @@ export default class ModuleLoader {
     public registerModule(_module: Module) {
         this.load(_module);
     }
+    public unregisterModule(_module: Module) {
+        this.unload(_module);
+    }
 
     private load(m: Module) {
         this.modules.push(m);
+    }
+    private unload(m: Module) {
+        const index = this.modules.indexOf(m);
+        index > -1 ? this.modules.splice(index, 1) : "";
     }
 
 }
