@@ -1,0 +1,34 @@
+{
+  "name": "chisaki_discord",
+  "version": "2.5.0",
+  "description": "powerfull discord bot",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "npm run build && node build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thelazypie/chisaki_discord.git"
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "discrdjs",
+    "discordbot"
+  ],
+  "author": "thelazypie (miyazaki)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thelazypie/chisaki_discord/issues"
+  },
+  "homepage": "https://github.com/thelazypie/chisaki_discord#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.2",
+    "cross-env": "^5.2.0",
+    "typescript": "^3.5.3"
+  }
+}
