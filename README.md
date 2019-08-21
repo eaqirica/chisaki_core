@@ -1,14 +1,14 @@
-# **Chisaki-core**
-## core of library uses chisaki bot
+# **chisaki/core**
+## core of library used by chisaki bot
 
 ## Usage
 
 * installing via npm `npm thelazypie/chisaki_core -S`
 * installing via yarn??? `yarn thelazypie/chisaki_core`
 
-library based on discord.js and extend it for some features
+ Library based on discord.js and extend it for some features
 
-lib is module based
+Lib is module based
 
 ### how to create module
 
@@ -18,7 +18,7 @@ Example:
 
 ```TestModule.ts```
 ```
-import { Module, ModuleData } from '../../src';
+import { Module, ModuleData } from 'chisaki_discord';
 
 
 export class TestModule implements Module {
