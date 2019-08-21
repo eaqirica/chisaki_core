@@ -1,4 +1,4 @@
-declare module "chisaki-core" {
+declare module "chisaki_discord" {
 
     interface ModuleData {
         exClient: ExtendedCLient;
