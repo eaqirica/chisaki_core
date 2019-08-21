@@ -5,4 +5,5 @@ lib
 *.log
 *.lock
 *-lock.*
+test
 
