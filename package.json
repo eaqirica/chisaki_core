@@ -5,7 +5,8 @@
   "types": "./typings/index.d.ts",
   "main": "lib/src/index",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "install": "npm run build"
   },
   "repository": {
     "type": "git",
