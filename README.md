@@ -1,45 +1,45 @@
-# **Chisaki**
+# **chisaki/core**
+## core of library used by chisaki bot
 
-![chisaki avatar](https://cdn.discordapp.com/avatars/493371941076467722/defa051c76993c5d08d0c9699d282f50.png?size=128)
+## Usage
 
-*Chisaki* - is a beatifull powerfull discord bot which support ~~many~~ features like moderation, anime search or music and ~~many other~~.
+* installing via npm `npm thelazypie/chisaki_core -S`
+* installing via yarn??? `yarn thelazypie/chisaki_core`
 
-# **How to use her**
+ Library based on discord.js and extend it for some features
 
-## How to compile and run.
+Lib is module based
 
-* **with node**
-    * ```npm run build``` - only compile.
-    * ```npm run start``` - only start.
-    * ```npm run dev``` compile and run.
-* **with yarn**
-    * ```yarn build``` - only compile.
-    * ```yarn start``` - only start.
-    * ```yarn dev``` - compile and run.
+### how to create module
 
-* ## How to add commands.
+Chisaki used self interface Module which need implements:
 
-* Create ***.ts*** file in some folder in src/commands like this:
-```js
-import Command from '@type/Command'
+Example:
 
-const commandName: Command = {
-    name: "test",
-    type: "command type",
-    help: "your usage",
-    summon: async (exClient: ExtendedClient, message: Message, args: string[]) => console.log("some actions this");
+```TestModule.ts```
+```
+import { Module, ModuleData } from 'chisaki_discord';
+
+
+export class TestModule implements Module {
+    init() {
+        console.log('inited test module')
+    }
+    run(data: ModuleData) {
+        console.log('runed test module')
+    }
+
 }
 
-export default commandName;
 ```
-* recompile 
-    > ```npm run build``` or ```yarn build```
-* done!
 
-## Connecting to database
+Next it need to be loaded into chisaki:
 
----
+```
+const chisaki = new ExtendedCLient();
 
-coming soon...
+chisaki.loadModule(new TestModule());
 
----
+chisaki.start();
+
+```
