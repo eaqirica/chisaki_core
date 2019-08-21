@@ -1,3 +1,5 @@
+import { Client } from "discord.js";
+
 declare module "chisaki_discord" {
 
     interface ModuleData {
@@ -36,7 +38,7 @@ declare module "chisaki_discord" {
          */
         private unload(m: Module): void;
     }
-    export class ExtendedCLient {
+    export class ExtendedCLient extends Client {
         private ML: ModuleLoader;
 
         constructor(options?: any);
