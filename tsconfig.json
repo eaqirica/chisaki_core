@@ -2,8 +2,8 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "commonjs",
-    "sourceMap": true,
-    "declaration": true,
+    "sourceMap": false,
+    "declaration": false,
     "outDir": "./lib",
     "rootDir": ".",
     "removeComments": true,

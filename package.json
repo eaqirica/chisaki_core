@@ -3,7 +3,7 @@
   "version": "2.5.0",
   "description": "powerfull discord bot",
   "types": "index.d.ts",
-  "main": "build/index.js",
+  "main": "build/src/index.js",
   "scripts": {
     "build": "tsc"
   },
