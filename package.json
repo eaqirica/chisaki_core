@@ -2,7 +2,6 @@
   "name": "chisaki_discord",
   "version": "2.5.0",
   "description": "powerfull discord bot",
-  "types": "typings/index.d.ts",
   "main": "src/index.ts",
   "scripts": {
     "build": "tsc"
