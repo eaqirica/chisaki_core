@@ -1,8 +1,9 @@
 import { Module } from './Module'
+import {Collection} from 'discord.js';
 
 export class ModuleLoader {
 
-    public modules: Array<Module> = new Array();
+    public modules: Collection<string,Module> = new Collection();
 
     /**
      *  register and load module(s)
@@ -16,11 +17,11 @@ export class ModuleLoader {
     }
 
     private load(m: Module) {
-        this.modules.push(m);
+        this.modules.set(m.name,m);
     }
+
     private unload(m: Module) {
-        const index = this.modules.indexOf(m);
-        index > -1 ? this.modules.splice(index, 1) : "";
+        this.modules.delete(m.name);
     }
 
 }
