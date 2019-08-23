@@ -10,6 +10,10 @@ export class ExtendedCLient extends Client {
 
     private ML: ModuleLoader;
 
+    public getModule(key: string): Module | undefined {
+        return this.ML.modules.get(key);
+    }
+
     constructor(options?: any) {
         super(options);
         this.ML = new ModuleLoader();
