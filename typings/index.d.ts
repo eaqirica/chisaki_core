@@ -21,7 +21,6 @@ declare module "chisaki_discord" {
          */
         public registerModule(_module: Module): void;
 
-        public getModule(key: string): Module | undefined;
 
         /**
          * 
@@ -45,6 +44,8 @@ declare module "chisaki_discord" {
         private ML: ModuleLoader;
 
         constructor(options?: any);
+
+        public getModule(key: string): Module | undefined;
 
         /**
          * uses Module Loader load module
