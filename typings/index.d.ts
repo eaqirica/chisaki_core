@@ -7,6 +7,7 @@ declare module "chisaki_discord" {
     }
 
     interface Module {
+        name: string;
         init: () => void;
         run: (data: ModuleData) => void;
     }
