@@ -34,7 +34,7 @@ export class ExtendedCLient extends Client {
      * call all registrered modules
      */
     private executeModules(): void {
-        if (!this.ML.modules.length) console.warn("Modules not finded");
+        if (!this.ML.modules.size) console.warn("Modules not finded");
 
         const moduleData: ModuleData = { exClient: this }
 
