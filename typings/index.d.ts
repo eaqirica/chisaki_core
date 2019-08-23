@@ -65,6 +65,6 @@ declare module "chisaki_discord" {
         /**
          * add event on ready, call login then execute registered modules
          */
-        public start(): Promise<void>;
+        public start(token?: string): Promise<void>;
     }
 }

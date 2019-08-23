@@ -54,9 +54,18 @@ export class ExtendedCLient extends Client {
     /**
      * add event on ready, call login then execute registered modules
      */
-    public async start(): Promise<void> {
-        //if (!process.env.BOT_TOKEN) throw new Error("can't find BOT_TOKEN property in procces.env");
+    public async start(token?: string): Promise<void> {
+        let t: string;
+
+        if (process.env.BOT_TOKEN) {
+            t = process.env.BOT_TOKEN
+        } else if (token) {
+            t = token;
+        } else {
+            throw new Error('Can not find token')
+        }
+
         this.on('ready', this.executeModules);
-        await this.login('NTgwNjUzODU5NjUxOTc3MjM2.XVwewg.qQtU1o0vlc_O94Q-qPjx1mWd8Ro');
+        await this.login(t);
     }
 }
