@@ -21,6 +21,8 @@ declare module "chisaki_discord" {
          */
         public registerModule(_module: Module): void;
 
+        public getModule(key: string): Module | undefined;
+
         /**
          * 
          * @param _module 
