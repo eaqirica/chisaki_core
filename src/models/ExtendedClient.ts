@@ -10,6 +10,10 @@ export class ExtendedCLient extends Client {
 
     private ML: ModuleLoader;
 
+    public getModule(key: string): Module | undefined {
+        return this.ML.modules.get(key);
+    }
+
     constructor(options?: any) {
         super(options);
         this.ML = new ModuleLoader();
@@ -34,7 +38,7 @@ export class ExtendedCLient extends Client {
      * call all registrered modules
      */
     private executeModules(): void {
-        if (!this.ML.modules.length) console.warn("Modules not finded");
+        if (!this.ML.modules.size) console.warn("Modules not finded");
 
         const moduleData: ModuleData = { exClient: this }
 
@@ -50,9 +54,18 @@ export class ExtendedCLient extends Client {
     /**
      * add event on ready, call login then execute registered modules
      */
-    public async start(): Promise<void> {
-        //if (!process.env.BOT_TOKEN) throw new Error("can't find BOT_TOKEN property in procces.env");
+    public async start(token?: string): Promise<void> {
+        let t: string;
+
+        if (process.env.BOT_TOKEN) {
+            t = process.env.BOT_TOKEN
+        } else if (token) {
+            t = token;
+        } else {
+            throw new Error('Can not find token')
+        }
+
         this.on('ready', this.executeModules);
-        await this.login('NTgwNjUzODU5NjUxOTc3MjM2.XVwewg.qQtU1o0vlc_O94Q-qPjx1mWd8Ro');
+        await this.login(t);
     }
 }

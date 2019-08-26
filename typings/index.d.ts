@@ -7,6 +7,7 @@ declare module "chisaki_discord" {
     }
 
     interface Module {
+        name: string;
         init: () => void;
         run: (data: ModuleData) => void;
     }
@@ -19,6 +20,7 @@ declare module "chisaki_discord" {
          * @param _module module for registration and load
          */
         public registerModule(_module: Module): void;
+
 
         /**
          * 
@@ -43,6 +45,8 @@ declare module "chisaki_discord" {
 
         constructor(options?: any);
 
+        public getModule(key: string): Module | undefined;
+
         /**
          * uses Module Loader load module
          * @param _module 
@@ -61,6 +65,6 @@ declare module "chisaki_discord" {
         /**
          * add event on ready, call login then execute registered modules
          */
-        public start(): Promise<void>;
+        public start(token?: string): Promise<void>;
     }
 }
