@@ -43,5 +43,5 @@ chisaki.loadModule(new TestModule());
 chisaki.start();
 
 ```
-### **token must be in process.env.BOT_TOKEN or in start method**
+### **token must be in `process.env.BOT_TOKEN` or in `start` method**
 
