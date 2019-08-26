@@ -51,12 +51,12 @@ declare module "chisaki_discord" {
          * uses Module Loader load module
          * @param _module 
          */
-        public loadModule(_module: Module): void;
+        public loadModule(_module: Module): Promise<void>;
         /**
          * uses Module Loader unload module
          * @param _module 
          */
-        public unloadModule(_module: Module): void;
+        public unloadModule(_module: Module): Promise<void>;
 
         /**
          * call all registrered modules

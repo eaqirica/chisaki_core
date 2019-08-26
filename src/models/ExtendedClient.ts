@@ -23,15 +23,17 @@ export class ExtendedCLient extends Client {
      * uses Module Loader load module
      * @param _module 
      */
-    public loadModule(_module: Module): void {
+    public loadModule(_module: Module): Promise<void> {
         this.ML.registerModule(_module);
+        return Promise.resolve();
     }
     /**
      * uses Module Loader unload module
      * @param _module 
      */
-    public unloadModule(_module: Module): void {
+    public unloadModule(_module: Module): Promise<void> {
         this.ML.unregisterModule(_module);
+        return Promise.resolve();
     }
 
     /**
