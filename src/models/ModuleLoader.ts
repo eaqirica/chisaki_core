@@ -9,17 +9,15 @@ export class ModuleLoader {
      *  register and load module(s)
      * @param _module module for registration and load
      */
-    public registerModule(_module: Module): Promise<void> {
+    public registerModule(_module: Module) {
         this.load(_module);
-        return Promise.resolve();
     }
     /**
      *  unregister and unload module(s)
      * @param _module module for unregistration and load
      */
-    public unregisterModule(_module: Module): Promise<void> {
+    public unregisterModule(_module: Module) {
         this.unload(_module);
-        return Promise.resolve();
     }
 
     private load(m: Module) {
